@@ -12,7 +12,7 @@ var fs = require('fs');
 
 module.exports = function(content) {
     this.cacheable && this.cacheable();
-    var ngIncludeReg = /(ng-include="(.+\/(\w+\.\w+))")/mg;
+    var ngIncludeReg = /(ng-include=["']{2}(.+\/(\w+\.\w+))["']{2})/mg;
     var result = content.match(ngIncludeReg);
     var moduleContext = this._module.context;
 
@@ -21,12 +21,10 @@ module.exports = function(content) {
     function genScriptTpl(arr) {
         if(Array.isArray(arr)){
             var html = '';
-            var urls = [];
-            var filenames = [];
 
             arr.forEach(function (v) {
-                var startIndex = v.indexOf('=') + 2;
-                var url = v.slice(startIndex, -1)
+                var startIndex = v.indexOf('=') + 3;
+                var url = v.slice(startIndex, -2)
                 var splitedArr = url.split('/');
                 var filename = splitedArr[splitedArr.length - 1];
                 var absoluteUrl = path.resolve(moduleContext, url);
