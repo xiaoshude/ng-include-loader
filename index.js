@@ -16,7 +16,7 @@ module.exports = function(content) {
     var result = content.match(ngIncludeReg);
     var moduleContext = this._module.context;
 
-    content = content.replace(ngIncludeReg, 'ng-include="$3"')
+    content = content.replace(ngIncludeReg, 'ng-include="\'$3\'"');
 
     function genScriptTpl(arr) {
         if(Array.isArray(arr)){
