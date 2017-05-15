@@ -1,6 +1,6 @@
 {
-  "name": "angular-include-loader",
-  "version": "0.0.1",
+  "name": "ng-include-loader",
+  "version": "0.0.5",
   "description": "angular ng-include loader for webpack",
   "main": "index.js",
   "scripts": {

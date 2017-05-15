@@ -11,7 +11,7 @@ var path = require('path');
 var fs = require('fs');
 
 module.exports = function(content) {
-    this.cacheable && this.cacheable();
+    // this.cacheable && this.cacheable();
     var ngIncludeReg = /(ng-include=["']{2}(.+\/(\w+\.\w+))["']{2})/mg;
     var result = content.match(ngIncludeReg);
     var moduleContext = this._module.context;
